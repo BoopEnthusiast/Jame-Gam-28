@@ -17,7 +17,6 @@ func _ready() -> void:
 func _input(event) -> void:
 	# If escape is pressed reveal the mouse
 	if event.is_action_pressed("ui_cancel"):
-		print("pausing")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
 		pause_menu.visible = true
