@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var running := false
 
 func _process(_delta):
-	$UI/FlowerHealth.text = "Flower Health: " + str(Flower._get_health())
+	$UI/FlowerHealth.text = "Flower Health: " + str(get_parent().get_node("Flower")._get_health())
 
 func _physics_process(delta):
 	# Add the gravity
