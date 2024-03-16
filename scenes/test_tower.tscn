@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5cllyobt01b6"]
+[gd_scene load_steps=5 format=3 uid="uid://b5cllyobt01b6"]
 
+[ext_resource type="Script" path="res://scripts/tower.gd" id="1_cc7nh"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="1_v4et4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xn10s"]
@@ -7,8 +8,9 @@ material = ExtResource("1_v4et4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a5n4v"]
 
-[node name="TestTower" type="StaticBody3D"]
+[node name="TowerBase" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_cc7nh")
 metadata/_edit_group_ = true
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
