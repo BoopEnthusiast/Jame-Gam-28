@@ -6,6 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var MAX_HEALTH: float
 @export var START_HEALTH: float
 @export var MOVE_SPEED: float
+@export var JUMP_VELOCITY: float
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready():
@@ -37,6 +38,14 @@ func _move_to(pos: Vector3):
 	# Check for if nav finished
 	if navigation_agent.is_navigation_finished():
 		return
+
+	# Jump
+	if is_on_wall() and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		collision.get_collider().call("_damage", 10.0)
 	
 	# Get current position and find next path position
 	var current_agent_position: Vector3 = global_position

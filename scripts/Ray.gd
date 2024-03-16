@@ -6,13 +6,11 @@ var ground_node: StaticBody3D
 @onready var tower_limiter := $"../../TowerLimiter"
 
 # Preload scenes to spawn
-var test_tower = preload("res://scenes/test_tower.tscn")
-
+var test_tower = preload("res://scenes/tower_base.tscn")
 
 # Get the ground node
 func _ready() -> void:
 	ground_node = get_node("../../../Ground")
-
 
 # Interact with objects
 func _physics_process(_delta) -> void:
