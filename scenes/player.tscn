@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://da6p7xugiti5x"]
+[gd_scene load_steps=10 format=3 uid="uid://da6p7xugiti5x"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_plm0u"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_fjjb6"]
@@ -9,6 +9,48 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_c2rp7"]
 material = ExtResource("2_fjjb6")
+
+[sub_resource type="GDScript" id="GDScript_4v4uo"]
+script/source = "extends Button
+
+@onready var pause_menu = $\"..\"
+
+var press_buffer = false
+
+func _on_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pause_menu.visible = false
+	get_tree().paused = false
+	press_buffer = false
+
+
+func _physics_process(_delta):
+	if Input.is_action_just_pressed(\"ui_cancel\") and press_buffer:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		pause_menu.visible = false
+		press_buffer = false
+		get_tree().paused = false
+	
+	if Input.is_action_just_pressed(\"ui_cancel\") and get_tree().paused:
+		press_buffer = true
+"
+
+[sub_resource type="GDScript" id="GDScript_eqj3p"]
+script/source = "extends Button
+
+@onready var main_menu_scene = preload(\"res://scenes/main_menu.tscn\")
+
+func _on_pressed():
+	get_tree().change_scene_to_packed(main_menu_scene)
+"
+
+[sub_resource type="GDScript" id="GDScript_dy4n4"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_plm0u")
@@ -34,3 +76,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FlowerHealth" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 23.0
+text = "Flower Health: "
+
+[node name="PauseMenu" type="VBoxContainer" parent="UI"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="UI/PauseMenu"]
+layout_mode = 2
+text = "Resume"
+script = SubResource("GDScript_4v4uo")
+
+[node name="MainMenuButton" type="Button" parent="UI/PauseMenu"]
+layout_mode = 2
+text = "Main Menu"
+script = SubResource("GDScript_eqj3p")
+
+[node name="QuitButton" type="Button" parent="UI/PauseMenu"]
+layout_mode = 2
+text = "Quit"
+script = SubResource("GDScript_dy4n4")
+
+[connection signal="pressed" from="UI/PauseMenu/ResumeButton" to="UI/PauseMenu/ResumeButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/MainMenuButton" to="UI/PauseMenu/MainMenuButton" method="_on_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/QuitButton" to="UI/PauseMenu/QuitButton" method="_on_pressed"]
