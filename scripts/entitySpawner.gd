@@ -1,6 +1,6 @@
 extends Node
 
-@onready var testEnemy = preload("res://entities/testEnemy.tscn")
+@onready var testEnemy = preload("res://scenes/testEnemy.tscn")
 
 func _process(_delta):
 	# Wait to spawn entity
