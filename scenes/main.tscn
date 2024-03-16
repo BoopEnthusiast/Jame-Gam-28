@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="PackedScene" path="res://scenes/flower.tscn" id="3_3vo6f"]
-[ext_resource type="PackedScene" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
+[ext_resource type="PackedScene" uid="uid://bu2ori3tgabq2" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 [ext_resource type="PackedScene" uid="uid://b5vaq6g5qxsaf" path="res://resources/GroundBase.glb" id="6_hvxjh"]
 

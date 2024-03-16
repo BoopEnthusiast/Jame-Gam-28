@@ -12,7 +12,7 @@ func _ready():
 	# Set health
 	health = START_HEALTH
 
-func _process(delta):
+func _process(_delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
 		get_parent().remove_child(self)
@@ -26,6 +26,7 @@ func _physics_process(delta):
 	
 	# Move towards the flower
 	_move_to(flower_pos)
+	move_and_slide()
 
 func _move_to(pos: Vector3):
 	# Set navigation agent target position
@@ -41,7 +42,6 @@ func _move_to(pos: Vector3):
 	
 	# Move towards next path position
 	velocity = current_agent_position.direction_to(next_path_position) * MOVE_SPEED
-	move_and_slide()
 
 #Call these with obj.call_deferred("func_name", args)
 func _get_health() -> float:
