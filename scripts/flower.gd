@@ -13,3 +13,6 @@ func _damage(dp: float):
 
 func _get_health() -> float:
 	return health
+
+func _get_size() -> float:
+	return scale.y
