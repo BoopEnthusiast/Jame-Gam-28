@@ -141,9 +141,11 @@ max_value = 120.0
 value = 70.0
 
 [node name="Audio" type="TabBar" parent="SettingsMenu"]
+visible = false
 layout_mode = 2
 
 [node name="Back" type="Button" parent="SettingsMenu"]
+visible = false
 layout_mode = 2
 text = "Back"
 script = SubResource("GDScript_wys4g")
