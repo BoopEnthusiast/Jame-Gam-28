@@ -1,18 +1,13 @@
 extends StaticBody3D
 
-var health: float = 100
-
 func _process(delta):
 	grow(0.09 * delta)
 
 func grow(amount: float):
 	scale.y += amount
 
-func damage(dp: float):
-	health -= dp
-
-func get_health() -> float:
-	return health
+func damage(dp: int):
+	Singleton.flower_health -= dp
 
 func get_size() -> float:
 	return scale.y
