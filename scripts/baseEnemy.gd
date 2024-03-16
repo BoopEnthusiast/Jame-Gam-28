@@ -29,17 +29,18 @@ func _physics_process(delta):
 	
 	# Move towards the flower
 	_move_to(flower_pos)
-
-func _move_to(pos: Vector3):
-	# Set navigation agent target position
-	navigation_agent.set_target_position(pos)
 	
+	# Damage the flower if colliding
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "Flower":
 			collision.get_collider().call("_damage", 10.0)
 			get_parent().remove_child(self)
 			return
+
+func _move_to(pos: Vector3):
+	# Set navigation agent target position
+	navigation_agent.set_target_position(pos)
 	
 	# Get current position and find next path position
 	var current_agent_position: Vector3 = global_position

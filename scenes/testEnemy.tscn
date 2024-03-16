@@ -22,3 +22,9 @@ mesh = SubResource("BoxMesh_ks755")
 shape = SubResource("BoxShape3D_vh5ar")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_max_distance = 22.11
+avoidance_enabled = true
+height = 5.04
+radius = 4.54
+use_3d_avoidance = true
+debug_enabled = true
