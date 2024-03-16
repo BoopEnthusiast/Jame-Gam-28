@@ -28,17 +28,17 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	# Move towards the flower
-	_move_to(flower_pos)
+	move_to(flower_pos)
 	
 	# Damage the flower if colliding
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "Flower":
-			collision.get_collider().call("_damage", 10.0)
+			collision.get_collider().call("damage", 10.0)
 			get_parent().remove_child(self)
 			return
 
-func _move_to(pos: Vector3):
+func move_to(pos: Vector3):
 	# Set navigation agent target position
 	navigation_agent.set_target_position(pos)
 	
@@ -51,19 +51,19 @@ func _move_to(pos: Vector3):
 	move_and_slide()
 
 #Call these with obj.call_deferred("func_name", args)
-func _get_health() -> float:
+func get_health() -> float:
 	return health
 
-func _heal(hp: float):
+func heal(hp: float):
 	if health + hp > MAX_HEALTH:
 		health = MAX_HEALTH
 	health += hp
 
-func _damage(dp: float):
+func damage(dp: float):
 	health -= dp
 
-func _set_move_speed(speed: float):
+func set_move_speed(speed: float):
 	MOVE_SPEED = speed
 
-func _get_move_speed() -> float:
+func get_move_speed() -> float:
 	return MOVE_SPEED

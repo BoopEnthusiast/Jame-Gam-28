@@ -9,9 +9,7 @@ func _ready():
 	timer = START_SPAWN_DELAY_SECONDS
 	timerRestartTime = START_SPAWN_DELAY_SECONDS
 
-# Right side x -80, -86 and z 25, -88, 
-
-func _get_positions(side: int) -> Vector4:
+func get_positions(side: int) -> Vector4:
 	match side:
 		0: # Right side
 			return Vector4(-80, -86, 25, -88)
@@ -29,7 +27,7 @@ func _process(delta):
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = testEnemy.instantiate()
-		var pos: Vector4 = _get_positions(randi_range(0, 2))
+		var pos: Vector4 = get_positions(randi_range(0, 2))
 		instance.position.x = randf_range(pos.x, pos.y)
 		instance.position.y = 5
 		instance.position.z = randf_range(pos.z, pos.w)
