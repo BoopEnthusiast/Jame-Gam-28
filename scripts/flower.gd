@@ -1,6 +1,5 @@
 extends StaticBody3D
 
-@onready var head = $Head
 var health: float = 100
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
