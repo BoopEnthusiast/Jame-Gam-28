@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
-[ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://scenes/flower.tscn" id="3_3vo6f"]
-[ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
+[ext_resource type="PackedScene" path="res://scenes/flower.tscn" id="3_3vo6f"]
+[ext_resource type="PackedScene" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 [ext_resource type="PackedScene" uid="uid://b5vaq6g5qxsaf" path="res://resources/GroundBase.glb" id="6_hvxjh"]
 
