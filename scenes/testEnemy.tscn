@@ -9,8 +9,8 @@ material = ExtResource("1_hypcj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vh5ar"]
 
 [node name="testEnemy" type="CharacterBody3D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 6
+collision_mask = 6
 script = ExtResource("1_0257s")
 MAX_HEALTH = 100.0
 START_HEALTH = 100.0
