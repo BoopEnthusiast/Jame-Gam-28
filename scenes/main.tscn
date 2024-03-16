@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4x83u2640j26"]
+[gd_scene load_steps=15 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_lvjju"]
@@ -45,6 +45,10 @@ shader_parameter/grazing_angle_modulation_factor = 50.0
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_ok78r"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l7q1j"]
+
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_oicmh")]
@@ -77,3 +81,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.122, 0, 0)
 material_override = SubResource("ShaderMaterial_61ji2")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_rqxdj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ok78r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
+transform = Transform3D(50.9291, 0, 0, 0, 1, 0, 0, 0, 49.9236, 0, 0, 0)
+mesh = SubResource("PlaneMesh_l7q1j")
