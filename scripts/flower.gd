@@ -8,8 +8,8 @@ func _ready():
 	head.position = Vector3(0, 1, 0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	_grow(0.00009)
+func _process(delta):
+	_grow(0.00009 * delta)
 
 func _grow(amount: float):
 	scale.y += amount
