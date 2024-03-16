@@ -75,7 +75,7 @@ navigation_mesh = SubResource("NavigationMesh_ok78r")
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="IgnoreWarning" type="CollisionShape3D" parent="Ground"]
-transform = Transform3D(70.57, 0, 0, 0, 0.622, 0, 0, 0, 79.602, -3.15203, -14.3683, -22.5688)
+transform = Transform3D(70.57, 0, 0, 0, 0.622, 0, 0, 0, 79.602, -2.068, -14.632, -23.129)
 shape = SubResource("ConcavePolygonShape3D_rqap7")
 
 [node name="GroundBase" parent="Ground" instance=ExtResource("6_hvxjh")]
