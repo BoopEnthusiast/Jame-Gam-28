@@ -15,7 +15,6 @@ func _process(_delta):
 
 func _physics_process(delta):
 	# Add the gravity
-	print(position)
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
