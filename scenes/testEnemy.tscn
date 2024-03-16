@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://3cjbrpuubju5"]
+[gd_scene load_steps=5 format=3 uid="uid://bpxr4jjddsycl"]
 
 [ext_resource type="Script" path="res://scripts/baseEnemy.gd" id="1_0257s"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="1_hypcj"]
