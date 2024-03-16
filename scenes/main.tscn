@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4x83u2640j26"]
+[gd_scene load_steps=13 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_lvjju"]
 [ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://objects/Flower/flower.tscn" id="3_3vo6f"]
+[ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cblll"]
 material = ExtResource("2_lvjju")
@@ -25,9 +26,24 @@ ssao_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_iti21"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_we7sv"]
-vertices = PackedVector3Array(-48.8932, 0.5, -49.6726, -48.8932, 0.5, 49.5774, 48.8568, 0.5, 49.5774, 48.8568, 0.5, -49.6726)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_61ji2"]
+render_priority = 0
+shader = ExtResource("4_u73yv")
+shader_parameter/outlineColor = Color(0, 0, 0, 1)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.5
+shader_parameter/normal_smoothing = 0.25
+shader_parameter/max_thickness = 1.0
+shader_parameter/min_thickness = 0.5
+shader_parameter/max_distance = 200.0
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_rqxdj"]
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="Main" type="Node3D"]
 
@@ -55,5 +71,9 @@ camera_attributes = SubResource("CameraAttributesPractical_iti21")
 [node name="Flower" parent="." instance=ExtResource("3_3vo6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.122, 0, 0)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_we7sv")
+[node name="Shading" type="Node3D" parent="."]
+
+[node name="Mesh" type="MeshInstance3D" parent="Shading"]
+material_override = SubResource("ShaderMaterial_61ji2")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_rqxdj")

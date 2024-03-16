@@ -1,20 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bb43ngplsfis2"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bb43ngplsfis2"]
 
-[ext_resource type="Shader" uid="uid://jjvcpb8im52u" path="res://addons/melvins_toon_addon/shaders/Outline.tres" id="1_1sb88"]
 [ext_resource type="Shader" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="1_pis2y"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fvh5"]
-render_priority = 0
-shader = ExtResource("1_1sb88")
-shader_parameter/outline_mode = 1
-shader_parameter/outline_color = null
-shader_parameter/outline_width = 1.0
-shader_parameter/use_width_map = false
-shader_parameter/use_color_map = false
 
 [resource]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_7fvh5")
 shader = ExtResource("1_pis2y")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/clamp_diffuse_to_max = false
