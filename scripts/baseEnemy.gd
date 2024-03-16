@@ -12,7 +12,7 @@ func _ready():
 	# Set health
 	self.health = self.START_HEALTH
 	# Find flower position
-	self.flower_pos = get_node("Flower").position
+	self.flower_pos = Vector3(0, 1, 0)
 
 func _process(delta):
 	# Check health and die if 0 and lower
