@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://iujjovvhgj5h"]
+[gd_scene load_steps=5 format=3 uid="uid://c2livv8pre4wn"]
 
 [ext_resource type="Script" path="res://scripts/flower.gd" id="1_ieosc"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="1_s56fb"]
