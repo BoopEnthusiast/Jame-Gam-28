@@ -7,27 +7,13 @@
 material = ExtResource("1_s56fb")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qj8ow"]
-size = Vector3(1, 6.65332, 1)
 
 [node name="Flower" type="StaticBody3D"]
 script = ExtResource("1_ieosc")
 metadata/_edit_group_ = true
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_78u6r")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_qj8ow")
-
-[node name="Head" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="Mesh" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_78u6r")
-
-[node name="Collider" type="CollisionShape3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_qj8ow")
