@@ -20,6 +20,8 @@ func _process(_delta):
 		health = MAX_HEALTH
 
 func _physics_process(delta):
+	# This won't work if there is no nav mesh
+	
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
