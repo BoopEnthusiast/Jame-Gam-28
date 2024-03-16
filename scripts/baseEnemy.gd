@@ -34,14 +34,6 @@ func _move_to(pos: Vector3):
 	# Set navigation agent target position
 	navigation_agent.set_target_position(pos)
 	
-	# Check for if nav finished
-	if navigation_agent.is_navigation_finished():
-		return
-
-	# Jump
-	if is_on_wall() and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().name == "Flower":
