@@ -11,7 +11,7 @@ func _ready():
 	# Set health
 	self.health = self.MAX_HEALTH
 	# Find flower position
-	self.flower_pos = get_tree().root.get_node("/root/Flower").position
+	self.flower_pos = get_node("Flower").position
 
 func _process(delta):
 	# Check health and die if 0 and lower
