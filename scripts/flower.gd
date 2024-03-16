@@ -14,5 +14,5 @@ func damage(dp: float):
 func get_health() -> float:
 	return health
 
-func _et_size() -> float:
+func get_size() -> float:
 	return scale.y
