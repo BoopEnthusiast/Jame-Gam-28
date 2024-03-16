@@ -4,3 +4,4 @@
 
 [node name="EntitySpawner" type="Node3D"]
 script = ExtResource("1_eqvls")
+SPAWN_DELAY_SECONDS = 3
