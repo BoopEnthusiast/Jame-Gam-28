@@ -1,8 +1,8 @@
 extends CharacterBody3D
 
 var health: float
-var flower_pos: Vector3 = Vector3(0, 1, 0)
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var flower_pos: Vector3 = get_parent().get_node("Flower").position
 @export var MAX_HEALTH: float
 @export var START_HEALTH: float
 @export var MOVE_SPEED: float
@@ -45,7 +45,8 @@ func _move_to(pos: Vector3):
 	
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		collision.get_collider().call("_damage", 10.0)
+		if collision.get_collider().name == "Flower":
+			collision.get_collider().call("_damage", 10.0)
 	
 	# Get current position and find next path position
 	var current_agent_position: Vector3 = global_position
