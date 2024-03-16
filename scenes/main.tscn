@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_lvjju"]
-[ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://objects/Flower/flower.tscn" id="3_3vo6f"]
-[ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://objects/entitySpawner.tscn" id="3_cklwk"]
+[ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://scenes/flower.tscn" id="3_3vo6f"]
+[ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cblll"]
