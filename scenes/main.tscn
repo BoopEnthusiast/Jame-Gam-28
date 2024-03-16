@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://b4x83u2640j26"]
+[gd_scene load_steps=15 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_lvjju"]
+[ext_resource type="PackedScene" uid="uid://bpxr4jjddsycl" path="res://entities/testEnemy.tscn" id="2_w87o1"]
 [ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://objects/Flower/flower.tscn" id="3_3vo6f"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 
@@ -53,6 +54,9 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="Player" parent="." instance=ExtResource("1_oicmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69256, 2.7275)
+
+[node name="testEnemy" parent="." instance=ExtResource("2_w87o1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.9821, 3.56673, 20.9053)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
