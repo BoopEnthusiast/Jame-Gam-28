@@ -11,6 +11,7 @@ material = ExtResource("1_hypcj")
 [node name="testEnemy" type="CharacterBody3D"]
 script = ExtResource("1_0257s")
 MAX_HEALTH = 100.0
+START_HEALTH = 100.0
 MOVE_SPEED = 5.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

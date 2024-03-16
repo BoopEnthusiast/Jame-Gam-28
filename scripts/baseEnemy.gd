@@ -4,12 +4,13 @@ var health: float
 var flower_pos: Vector3
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var MAX_HEALTH: float
+@export var START_HEALTH: float
 @export var MOVE_SPEED: float
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready():
 	# Set health
-	self.health = self.MAX_HEALTH
+	self.health = self.START_HEALTH
 	# Find flower position
 	self.flower_pos = get_node("Flower").position
 
@@ -17,6 +18,8 @@ func _process(delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
 		get_parent().remove_child(self)
+	if health > MAX_HEALTH:
+		health = MAX_HEALTH
 
 func _physics_process(delta):
 	# Gravity
@@ -45,6 +48,11 @@ func _move_to(pos: Vector3):
 #Call these with obj.call_deferred("func_name", args)
 func _get_health() -> float:
 	return self.health
+
+func _heal(hp: float):
+	if self.health + hp > self.MAX_HEALTH:
+		self.health = self.MAX_HEALTH
+	self.health += hp
 
 func _damage(dp: float):
 	self.health -= dp
