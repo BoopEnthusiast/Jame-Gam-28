@@ -1,13 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4x83u2640j26"]
+[gd_scene load_steps=14 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
-[ext_resource type="Material" uid="uid://bb43ngplsfis2" path="res://addons/flexible_toon_shader/FlexibleToonMaterial.tres" id="2_lvjju"]
-[ext_resource type="PackedScene" path="res://scenes/flower.tscn" id="3_3vo6f"]
-[ext_resource type="PackedScene" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
+[ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://scenes/flower.tscn" id="3_3vo6f"]
+[ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cblll"]
-material = ExtResource("2_lvjju")
+[ext_resource type="PackedScene" uid="uid://b5vaq6g5qxsaf" path="res://resources/GroundBase.glb" id="6_hvxjh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kjgbi"]
 size = Vector3(1, 0.013916, 1)
@@ -47,8 +44,6 @@ flip_faces = true
 size = Vector2(2, 2)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ok78r"]
-vertices = PackedVector3Array(-50.4291, 0.5, -49.4236, -50.4291, 0.5, 49.3264, 50.3209, 0.5, 49.3264, 50.3209, 0.5, -49.4236)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [node name="Main" type="Node3D"]
 
@@ -58,13 +53,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69256, 2.7275)
 [node name="Ground" type="StaticBody3D" parent="."]
 metadata/_edit_group_ = true
 
-[node name="Mesh" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
-mesh = SubResource("PlaneMesh_cblll")
-
 [node name="Collider" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, -0.651882, 0)
 shape = SubResource("BoxShape3D_kjgbi")
+
+[node name="GroundBase" parent="Ground" instance=ExtResource("6_hvxjh")]
+transform = Transform3D(4.42839, 0, 0, 0, 4.42839, 0, 0, 0, 4.42839, -1.94111, -18.9383, -22.4963)
 
 [node name="EntitySpawner" parent="." instance=ExtResource("3_cklwk")]
 
@@ -76,7 +70,7 @@ environment = SubResource("Environment_o5a6t")
 camera_attributes = SubResource("CameraAttributesPractical_iti21")
 
 [node name="Flower" parent="." instance=ExtResource("3_3vo6f")]
-transform = Transform3D(1.00185, 0, 0, 0, 1.00185, 0, 0, 0, 1.00185, 0, 1, 0)
+transform = Transform3D(1.00185, 0, 0, 0, 1.00185, 0, 0, 0, 1.00185, 0, -2.20788, 24.7052)
 
 [node name="Shading" type="Node3D" parent="."]
 
