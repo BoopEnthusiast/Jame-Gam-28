@@ -73,7 +73,7 @@ environment = SubResource("Environment_o5a6t")
 camera_attributes = SubResource("CameraAttributesPractical_iti21")
 
 [node name="Flower" parent="." instance=ExtResource("3_3vo6f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.122, 0, 0)
+transform = Transform3D(1.00185, 0, 0, 0, 1.00185, 0, 0, 0, 1.00185, 0, 1, 0)
 
 [node name="Shading" type="Node3D" parent="."]
 
