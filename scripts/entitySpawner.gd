@@ -1,11 +1,14 @@
 extends Node
 
+@onready var testEnemy = preload("res://entities/testEnemy.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _process(_delta):
+	# Wait to spawn entity
+	await get_tree().create_timer(5).timeout
+	
+	# Spawn the entity
+	var instance = testEnemy.instantiate()
+	instance.position.x = randf_range(0, 30)
+	instance.position.y = 5
+	instance.position.z = randf_range(0, 30)
+	get_tree().root.add_child(instance)

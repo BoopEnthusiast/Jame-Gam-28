@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://dlhrp0ou64c2s"]
+[gd_scene load_steps=2 format=3 uid="uid://dlhrp0ou64c2s"]
+
+[ext_resource type="Script" path="res://scripts/entitySpawner.gd" id="1_eqvls"]
 
 [node name="EntitySpawner" type="Node3D"]
+script = ExtResource("1_eqvls")
