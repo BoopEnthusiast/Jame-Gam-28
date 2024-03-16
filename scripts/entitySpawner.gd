@@ -13,8 +13,8 @@ func _process(delta):
 		time = SPAWN_DELAY_SECONDS
 		# Spawn the entity
 		var instance = testEnemy.instantiate()
-		instance.position.x = randf_range(-30, 30)
+		instance.position.x = randf_range(-50, 80)
 		instance.position.y = 5
-		instance.position.z = randf_range(-30, 30)
+		instance.position.z = randf_range(-90, 62)
 		get_parent().add_child(instance)
 	else: time -= delta
