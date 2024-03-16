@@ -2,29 +2,43 @@ extends CharacterBody3D
 
 var health: float
 var flower_pos: Vector3
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var MAX_HEALTH: float
 @export var MOVE_SPEED: float
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready():
+	# Set health
 	self.health = self.MAX_HEALTH
+	# Find flower position
 	self.flower_pos = get_tree().root.get_node("/root/Flower").position
 
 func _process(delta):
+	# Check health and die if 0 and lower
 	if health <= 0:
 		get_parent().remove_child(self)
 
 func _physics_process(delta):
+	# Gravity
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
+	# Move towards the flower
 	_move_to(self.flower_pos)
 
 func _move_to(pos: Vector3):
+	# Set navigation agent target position
 	self.navigation_agent.set_target_position(pos)
+	
+	# Check for if nav finished
 	if self.navigation_agent.is_navigation_finished():
 		return
 	
+	# Get current position and find next path position
 	var current_agent_position: Vector3 = self.global_position
 	var next_path_position: Vector3 = self.navigation_agent.get_next_path_position()
-
+	
+	# Move towards next path position
 	self.velocity = current_agent_position.direction_to(next_path_position) * MOVE_SPEED
 	self.move_and_slide()
 
