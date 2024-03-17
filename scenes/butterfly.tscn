@@ -9,15 +9,21 @@ radius = 35.0
 [node name="Butterfly" type="CharacterBody3D"]
 script = ExtResource("1_48cep")
 HEALING_POWER = 40
+MAX_HEALTH = 100.0
+START_HEALTH = 100.0
 MOVE_SPEED = 3.0
 WATER_VALUE = 5
 
 [node name="ButterflyTextured" parent="." instance=ExtResource("1_n8pfj")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Range" type="Area3D" parent="ButterflyTextured"]
+[node name="Range" type="Area3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Collider" type="CollisionShape3D" parent="ButterflyTextured/Range"]
+[node name="Collider" type="CollisionShape3D" parent="Range"]
 shape = SubResource("SphereShape3D_7d737")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
