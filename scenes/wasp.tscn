@@ -4,18 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://cbh61c6vv361r" path="res://resources/WaspTextureglb.glb" id="2_3k7dc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_y6lws"]
-radius = 36.948
+radius = 25.0
 
 [node name="Wasp" type="CharacterBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_17e42")
-HEALING_POWER = 100
+HEALING_POWER = 30
 MAX_HEALTH = 150
 START_HEALTH = 150
 MOVE_SPEED = 3.0
 WATER_VALUE = 10
 
 [node name="WaspTextureglb" parent="." instance=ExtResource("2_3k7dc")]
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0, 0)
 
 [node name="Range" type="Area3D" parent="."]
 collision_layer = 2

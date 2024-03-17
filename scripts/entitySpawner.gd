@@ -3,6 +3,7 @@ extends Node
 @onready var testEnemy = preload("res://scenes/testEnemy.tscn")
 @onready var beetle = preload("res://scenes/beetle.tscn")
 @onready var wasp = preload("res://scenes/wasp.tscn")
+@onready var butterfly = preload("res://scenes/butterfly.tscn")
 @onready var ant = preload("res://scenes/ant.tscn")
 @export var START_SPAWN_DELAY_SECONDS: int
 var timerRestartTime
@@ -26,12 +27,14 @@ func _process(delta):
 	# Spawn wasp when certin score reached
 	if Singleton.score > 2 and wasp not in options:
 		options.append(wasp)
+	if Singleton.score > 3 and butterfly not in options:
+		options.append(butterfly)
 	# Delay for the spawning
 	if timer <= 0:
-		if timerRestartTime > 0.05:
+		if timerRestartTime >= 0.1:
 			timerRestartTime -= 4.5 * 0.016666666
 		else:
-			timerRestartTime = 0.05
+			timerRestartTime = 0.1
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = options[randi_range(0, options.size() - 1)].instantiate()
