@@ -4,7 +4,7 @@ var target
 var seed_area_scene := preload("res://scenes/seed_area.tscn")
 var damage: int
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target != null:
 		global_position += global_position.direction_to(target.global_position)
 	else:

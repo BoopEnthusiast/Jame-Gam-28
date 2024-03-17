@@ -9,7 +9,7 @@ func _ready():
 	timer.start()
 
 
-func _process(delta):
+func _process(_delta):
 	for enemyy in get_overlapping_bodies():
 		if enemyy is enemy:
 			enemyy.health -= damage
