@@ -13,7 +13,7 @@ func _ready():
 func _process(delta):
 	for enemyy in get_overlapping_bodies():
 		if enemyy is enemy:
-			enemyy.damag((damage * delta)*(level/1.5))
+			enemyy.damage((damage * delta)*(level/1.5))
 
 
 func _on_timeout():

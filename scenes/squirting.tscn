@@ -52,7 +52,6 @@ radius = 36.948
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_m3rs8")
 damage_points = 60
-COST = 40
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
