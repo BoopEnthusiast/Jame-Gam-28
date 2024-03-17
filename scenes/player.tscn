@@ -183,8 +183,8 @@ grow_vertical = 2
 
 [node name="FlowerHealth" type="RichTextLabel" parent="UI"]
 layout_mode = 0
-offset_right = 250.0
-offset_bottom = 23.0
+offset_right = 342.0
+offset_bottom = 79.0
 text = "Flower Health: "
 script = SubResource("GDScript_ypnlj")
 
@@ -194,7 +194,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -139.0
-offset_bottom = 23.0
+offset_bottom = 114.0
 grow_horizontal = 0
 text = "Water: "
 script = SubResource("GDScript_f1pcb")
@@ -205,7 +205,7 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -23.0
-offset_right = 214.0
+offset_right = 486.0
 grow_vertical = 0
 text = "Score: "
 script = SubResource("GDScript_pka8r")
