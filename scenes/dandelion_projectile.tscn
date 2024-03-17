@@ -9,6 +9,8 @@ radius = 1.0
 size = Vector3(0.3, 0.3, 0.3)
 
 [node name="DandelionPrejectile" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_3prrt")
 
 [node name="Collider" type="CollisionShape3D" parent="."]

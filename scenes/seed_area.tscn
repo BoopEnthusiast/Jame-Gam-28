@@ -6,21 +6,22 @@
 emission_shape = 1
 emission_sphere_radius = 5.0
 spread = 180.0
-initial_velocity_min = 5.0
-initial_velocity_max = 30.0
+initial_velocity_max = 5.0
 gravity = Vector3(0, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_r8jyi"]
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t20sv"]
-radius = 7.042
+radius = 8.886
 
 [node name="SeedArea" type="Area3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_teiw4")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-amount = 21
+amount = 316
 interp_to_end = 1.0
 process_material = SubResource("ParticleProcessMaterial_wcty2")
 draw_pass_1 = SubResource("BoxMesh_r8jyi")
@@ -29,5 +30,6 @@ draw_pass_1 = SubResource("BoxMesh_r8jyi")
 shape = SubResource("SphereShape3D_t20sv")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timeout"]

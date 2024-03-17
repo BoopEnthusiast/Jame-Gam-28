@@ -7,7 +7,7 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4tdws"]
-radius = 15.0
+radius = 31.0
 
 [node name="Dandelion" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -27,4 +27,8 @@ collision_mask = 2
 [node name="Collider" type="CollisionShape3D" parent="Range"]
 shape = SubResource("SphereShape3D_4tdws")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]
