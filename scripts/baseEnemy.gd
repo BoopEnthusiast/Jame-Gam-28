@@ -1,11 +1,11 @@
 extends CharacterBody3D
 class_name enemy
 
-var health: float
+var health: int
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var flower_pos: Vector3 = get_parent().get_node("Flower").position
-@export var MAX_HEALTH: float
-@export var START_HEALTH: float
+@export var MAX_HEALTH: int
+@export var START_HEALTH: int
 @export var MOVE_SPEED: float
 @export var JUMP_VELOCITY: float
 @export var WATER_VALUE: int
@@ -18,7 +18,7 @@ func _ready():
 func _process(_delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
-		Singleton.water += WATER_VALUE
+		Singleton.water += WATER_VALUE & Singleton.score
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
@@ -61,15 +61,15 @@ func run_animations():
 	pass
 
 #Call these with obj.call_deferred("func_name", args)
-func get_health() -> float:
+func get_health() -> int:
 	return health
 
-func heal(hp: float):
+func heal(hp: int):
 	if health + hp > MAX_HEALTH:
 		health = MAX_HEALTH
 	health += hp
 
-func damage(dp: float):
+func damage(dp: int):
 	health -= dp
 
 func set_move_speed(speed: float):
