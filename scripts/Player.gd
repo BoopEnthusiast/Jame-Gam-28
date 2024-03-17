@@ -12,11 +12,18 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var walking_sound = $WalkingSound
 @onready var jumping_sound = $JumpingSound 
 @onready var hit_sound = $HitSound
+@onready var death_screen = $UI/DeathScreen
 
 # Is running
 var running := false
 
 func _physics_process(delta):
+	
+	if Singleton.flower_health <= 0:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().paused = true
+		death_screen.visible = true
+	
 	# Add the gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta

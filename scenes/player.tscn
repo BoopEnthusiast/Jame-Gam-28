@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://da6p7xugiti5x"]
+[gd_scene load_steps=19 format=3 uid="uid://da6p7xugiti5x"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_plm0u"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="3_37b05"]
@@ -49,8 +49,8 @@ var dandelion_scene := preload(\"res://scenes/dandelion.tscn\")
 
 # Variables
 @export var aloe_cost: int = 40
-@export var dandelion_cost: int = 90
-@export var squirting_cost: int = 50
+@export var dandelion_cost: int = 60
+@export var squirting_cost: int = 90
 @export var venus_cost: int = 30
 
 # Get nodes
@@ -147,6 +147,14 @@ func _on_pressed():
 	get_tree().quit()
 "
 
+[sub_resource type="GDScript" id="GDScript_h20ig"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 5
 collision_mask = 5
@@ -211,7 +219,6 @@ text = "Score: "
 script = SubResource("GDScript_pka8r")
 
 [node name="TowerSpawnMenu" type="GridContainer" parent="UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -238,13 +245,13 @@ over time
 layout_mode = 2
 text = "Dandelion
 Explosion shots
-90 water"
+60 water"
 
 [node name="Squirting" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Squirting Cucumber
 Precise shots
-50 water"
+90 water"
 
 [node name="Venus" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
@@ -284,6 +291,47 @@ layout_mode = 2
 text = "Quit"
 script = SubResource("GDScript_dy4n4")
 
+[node name="DeathScreen" type="Panel" parent="UI"]
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -78.0
+offset_right = 54.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Lost text" type="RichTextLabel" parent="UI/DeathScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Damn, you lost"
+
+[node name="Button" type="Button" parent="UI/DeathScreen"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = 78.0
+offset_right = 21.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+script = SubResource("GDScript_h20ig")
+
 [node name="WalkingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_p32kb")
 autoplay = true
@@ -310,3 +358,4 @@ stream = ExtResource("8_csx7c")
 [connection signal="pressed" from="UI/PauseMenu/Resume" to="UI/PauseMenu/Resume" method="_on_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/MainMenu" to="UI/PauseMenu/MainMenu" method="_on_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/Quit" to="UI/PauseMenu/Quit" method="_on_pressed"]
+[connection signal="pressed" from="UI/DeathScreen/Button" to="UI/DeathScreen/Button" method="_on_pressed"]

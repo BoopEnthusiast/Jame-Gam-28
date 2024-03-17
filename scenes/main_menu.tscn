@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpo4oouroj5y7"]
+[gd_scene load_steps=5 format=3 uid="uid://dpo4oouroj5y7"]
 
 [sub_resource type="Theme" id="Theme_coyev"]
 default_font_size = 25
@@ -9,18 +9,6 @@ script/source = "extends Button
 func _on_pressed():
 	Singleton.reset()
 	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
-"
-
-[sub_resource type="GDScript" id="GDScript_m7cmm"]
-script/source = "extends Button
-
-@onready var settings_menu = $\"../../SettingsMenu\"
-@onready var start_menu = $\"..\"
-
-
-func _on_pressed():
-	settings_menu.visible = false
-	start_menu.visible = true
 "
 
 [sub_resource type="GDScript" id="GDScript_xu0ik"]
@@ -86,11 +74,6 @@ autowrap_mode = 0
 layout_mode = 2
 text = "Start"
 script = SubResource("GDScript_d0s8v")
-
-[node name="SettingsButton" type="Button" parent="StartMenu"]
-layout_mode = 2
-text = "Settings"
-script = SubResource("GDScript_m7cmm")
 
 [node name="QuitButton" type="Button" parent="StartMenu"]
 layout_mode = 2

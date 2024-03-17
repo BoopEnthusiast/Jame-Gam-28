@@ -24,6 +24,8 @@ func get_positions(side: int) -> Vector4:
 			return Vector4(-80, -86, 25, -88)
 		1: # Left side
 			return Vector4(85, 82, 38, -78)
+		2: # Middle
+			return Vector4(-35, 26, -93, -93)
 	return Vector4(0, 0, 0, 0)
 
 func _process(delta):
@@ -41,7 +43,7 @@ func _process(delta):
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = options[randi_range(0, options.size() - 1)].instantiate()
-		var pos: Vector4 = get_positions(randi_range(0, 1))
+		var pos: Vector4 = get_positions(randi_range(0, 2))
 		instance.position.x = randf_range(pos.x, pos.y)
 		instance.position.y = 5
 		instance.position.z = randf_range(pos.z, pos.w)
