@@ -6,16 +6,19 @@ extends "res://scripts/tower.gd"
 var bodies = []
 
 func _process(_delta):
-	var body = bodies[0]
-	print(body)
-	if body is enemy and cooldown.is_stopped():
-		head.look_at(body.global_position)
-		body.call("damage", damage_points)
-		cooldown.start()
+	if not bodies.is_empty():
+		var body = bodies[0]
+		# TODO WHY ISN'T THE TIMER STOPPING AHHHHHHHHHHHHHHHHHHH
+		if cooldown.is_stopped():
+			print("hi")
+			head.look_at(body.global_position)
+			body.call("damage", damage_points)
+			cooldown.start()
 
 func _on_range_body_entered(body):
-	bodies.append(body)
-
+	if body is enemy:
+		bodies.append(body)
 
 func _on_range_body_exited(body):
-	bodies.erase(body)
+	if body is enemy:
+		bodies.erase(body)
