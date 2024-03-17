@@ -1,10 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cawvmqem7w3ml"]
 
 [ext_resource type="Script" path="res://scripts/venus.gd" id="1_hxfg5"]
+[ext_resource type="PackedScene" uid="uid://duowg10q04x1q" path="res://resources/Flytrap_lvl_3_wholetextured(1).glb" id="2_0eypm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1quh1"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kexwh"]
 radius = 5.915
@@ -16,8 +15,8 @@ script = ExtResource("1_hxfg5")
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_m30ox")
+[node name="Flytrap_lvl_3_wholetextured(1)" parent="." instance=ExtResource("2_0eypm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.239)
 
 [node name="Range" type="Area3D" parent="."]
 collision_layer = 2

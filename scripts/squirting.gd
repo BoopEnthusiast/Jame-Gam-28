@@ -1,6 +1,6 @@
 extends "res://scripts/tower.gd"
 
-@onready var head = $Head
+@onready var plant = $Cucumber_lvl_3_textured/Cucumber_lvl_3
 @onready var cooldown: Timer = $FireCooldown
 
 var bodies = []
@@ -9,7 +9,7 @@ func _process(_delta):
 	if not bodies.is_empty():
 		var body = bodies[0]
 		if cooldown.is_stopped():
-			head.look_at(body.global_position)
+			plant.look_at(body.global_position)
 			body.call("damage", damage_points)
 			cooldown.start()
 
