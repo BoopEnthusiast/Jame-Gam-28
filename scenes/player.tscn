@@ -290,6 +290,9 @@ stream = ExtResource("6_trd0w")
 pitch_scale = 1.93
 bus = &"SFX"
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
 [connection signal="pressed" from="UI/TowerSpawnMenu/Aloe" to="UI/TowerSpawnMenu" method="_on_aloe_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Dandelion" to="UI/TowerSpawnMenu" method="_on_dandelion_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Squirting" to="UI/TowerSpawnMenu" method="_on_squirting_pressed"]
