@@ -1,14 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3vr37degaypr"]
+[gd_scene load_steps=5 format=3 uid="uid://b3vr37degaypr"]
+
+[ext_resource type="Script" path="res://scripts/squirting.gd" id="1_m3rs8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1quh1"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_m0t8x"]
+radius = 36.948
+
 [node name="Squirting" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_m3rs8")
+damage_points = null
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_m30ox")
+
+[node name="Range" type="Area3D" parent="."]
+
+[node name="Collider" type="CollisionShape3D" parent="Range"]
+shape = SubResource("SphereShape3D_m0t8x")
+
+[node name="FireCooldown" type="Timer" parent="."]
+process_callback = 0
+wait_time = 1.5
