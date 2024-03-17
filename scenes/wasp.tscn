@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhvjg6iemfyi3"]
+[gd_scene load_steps=7 format=3 uid="uid://dhvjg6iemfyi3"]
 
 [ext_resource type="Script" path="res://scripts/wasp.gd" id="1_16bm6"]
 [ext_resource type="PackedScene" uid="uid://cbh61c6vv361r" path="res://resources/WaspTextureglb.glb" id="2_3k7dc"]
+[ext_resource type="AudioStream" uid="uid://cf022fqo14ihx" path="res://resources/sound/Death_noise.mp3" id="3_s2eaj"]
+[ext_resource type="AudioStream" uid="uid://tyd16po7itit" path="res://resources/sound/Wasp_Buzz.mp3" id="4_okwj1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5lbc"]
 radius = 0.186433
@@ -32,3 +34,12 @@ shape = SubResource("CapsuleShape3D_c5lbc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
 shape = SubResource("SphereShape3D_iq277")
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0523, 0)
+stream = ExtResource("3_s2eaj")
+
+[node name="Buzzzz" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0523, 0)
+stream = ExtResource("4_okwj1")
+autoplay = true

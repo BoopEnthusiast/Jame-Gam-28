@@ -11,6 +11,7 @@ var gravity = 0
 @export var WATER_VALUE: int
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $Collider
+@onready var death_sound: AudioStreamPlayer3D = $DeathSound
 
 func _ready():
 	# Set health
@@ -23,6 +24,7 @@ func _process(_delta):
 		print("dying   ",Singleton.water)
 		Singleton.water += WATER_VALUE
 		print(Singleton.water)
+		death_sound.play()
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
@@ -44,6 +46,7 @@ func _physics_process(delta):
 		print(collision)
 		if collision.get_collider().name == "Flower":
 			collision.get_collider().call("damage", 10.0)
+			death_sound.play()
 			get_parent().remove_child(self)
 			return
 	move_and_slide()
