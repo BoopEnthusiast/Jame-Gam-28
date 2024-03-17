@@ -3,7 +3,7 @@ class_name enemy
 
 var health: float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var flower_pos: Vector3 = get_parent().get_node("Flower").position
+#@onready var flower_pos: Vector3 = get_parent().get_node("Flower").position
 @export var MAX_HEALTH: float
 @export var START_HEALTH: float
 @export var MOVE_SPEED: float
@@ -33,7 +33,7 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	# Move towards the flower
-	move_to(flower_pos)
+#	move_to(flower_pos)
 	
 	# Damage the flower if colliding
 	for i in get_slide_collision_count():
