@@ -10,9 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Is running
 var running := false
 
-func _process(_delta):
-	$UI/FlowerHealth.text = "Flower Health: " + str(Singleton.get_flower_health())
-
 func _physics_process(delta):
 	# Add the gravity
 	if not is_on_floor():
