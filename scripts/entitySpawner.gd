@@ -1,6 +1,7 @@
 extends Node
 
 @onready var testEnemy = preload("res://scenes/testEnemy.tscn")
+@onready var beetle = preload("res://scenes/beetle.tscn")
 @export var START_SPAWN_DELAY_SECONDS: int
 var timerRestartTime
 var timer
@@ -26,7 +27,7 @@ func _process(delta):
 			timerRestartTime = 0.05
 		timer = timerRestartTime
 		# Spawn the entity
-		var instance = testEnemy.instantiate()
+		var instance = beetle.instantiate()
 		var pos: Vector4 = get_positions(randi_range(0, 1))
 		instance.position.x = randf_range(pos.x, pos.y)
 		instance.position.y = 5

@@ -22,6 +22,7 @@ func _process(_delta):
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
+	run_animations()
 
 func _physics_process(delta):
 	# This won't work if there is no nav mesh
@@ -40,6 +41,7 @@ func _physics_process(delta):
 			collision.get_collider().call("damage", 10.0)
 			get_parent().remove_child(self)
 			return
+	move_and_slide()
 
 func move_to(pos: Vector3):
 	# Set navigation agent target position
@@ -49,9 +51,14 @@ func move_to(pos: Vector3):
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
 	
+	# Look in the direction
+	look_at(next_path_position)
+	
 	# Move towards next path position
 	velocity = current_agent_position.direction_to(next_path_position) * MOVE_SPEED
-	move_and_slide()
+
+func run_animations():
+	pass
 
 #Call these with obj.call_deferred("func_name", args)
 func get_health() -> float:
@@ -70,7 +77,6 @@ func set_move_speed(speed: float):
 
 func get_move_speed() -> float:
 	return MOVE_SPEED
-
 
 func get_global_position_from_enemy():
 	return global_position

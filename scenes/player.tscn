@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://da6p7xugiti5x"]
+[gd_scene load_steps=14 format=3 uid="uid://da6p7xugiti5x"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_plm0u"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="3_37b05"]
+[ext_resource type="PackedScene" uid="uid://cbfyd6653gl6j" path="res://resources/HandStab.glb" id="4_3hcqd"]
 [ext_resource type="Script" path="res://scripts/Ray.gd" id="4_jwg7r"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioq6e"]
@@ -151,6 +152,9 @@ shape = SubResource("CapsuleShape3D_ioq6e")
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 script = ExtResource("3_37b05")
+
+[node name="HandStab" parent="Camera" instance=ExtResource("4_3hcqd")]
+transform = Transform3D(-0.0130734, 0, 0.149429, 0, 0.15, 0, -0.149429, 0, -0.0130734, 0.408, -1.17547, -0.491)
 
 [node name="Ray" type="RayCast3D" parent="Camera"]
 target_position = Vector3(0, 0, -3)

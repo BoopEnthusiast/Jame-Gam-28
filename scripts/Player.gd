@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 5.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var animationPlayer: AnimationPlayer = $Camera/HandStab/AnimationPlayer
 
 # Is running
 var running := false
@@ -18,6 +19,12 @@ func _physics_process(delta):
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	
+	if Input.is_action_just_pressed("hit"):
+		animationPlayer.play("Cube_008Action")
+	
+	if not animationPlayer.is_playing():
+		animationPlayer.stop()
 	
 	# Get the input direction and handle the movement/deceleration
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")

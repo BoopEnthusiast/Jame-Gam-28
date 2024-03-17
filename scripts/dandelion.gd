@@ -5,8 +5,7 @@ var seed_scene = preload("res://scenes/dandelion_projectile.tscn")
 @onready var timer = $Timer
 var searching := true
 
-
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	if searching:
 		for body in range.get_overlapping_bodies():
 			if body is enemy:
