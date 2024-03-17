@@ -1,13 +1,13 @@
 extends "res://scripts/tower.gd"
 
 var seed_scene = preload("res://scenes/dandelion_projectile.tscn")
-@onready var range = $Range
+@onready var rangeArea = $Range
 @onready var timer = $Timer
 var searching := true
 
 func _physics_process(_delta) -> void:
 	if searching:
-		for body in range.get_overlapping_bodies():
+		for body in rangeArea.get_overlapping_bodies():
 			if body is enemy:
 				searching = false
 				var new_seed: Area3D = seed_scene.instantiate()

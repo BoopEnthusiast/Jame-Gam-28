@@ -30,7 +30,7 @@ func _process(_delta):
 script/source = "extends RichTextLabel
 
 
-func _process(delta):
+func _process(_delta):
 	text = \"Score: \" + str(Singleton.score)
 "
 
