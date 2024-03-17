@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3vr37degaypr"]
+[gd_scene load_steps=7 format=3 uid="uid://b3vr37degaypr"]
 
 [ext_resource type="Script" path="res://scripts/squirting.gd" id="1_m3rs8"]
 
@@ -9,9 +9,14 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_m0t8x"]
 radius = 36.948
 
+[sub_resource type="BoxMesh" id="BoxMesh_mi06e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wghn0"]
+
 [node name="Squirting" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_m3rs8")
+damage_points = 60
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
@@ -20,10 +25,23 @@ shape = SubResource("CylinderShape3D_1quh1")
 mesh = SubResource("CylinderMesh_m30ox")
 
 [node name="Range" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Collider" type="CollisionShape3D" parent="Range"]
 shape = SubResource("SphereShape3D_m0t8x")
 
 [node name="FireCooldown" type="Timer" parent="."]
 process_callback = 0
-wait_time = 1.5
+
+[node name="Head" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Head"]
+mesh = SubResource("BoxMesh_mi06e")
+
+[node name="Collider" type="CollisionShape3D" parent="Head"]
+shape = SubResource("BoxShape3D_wghn0")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
