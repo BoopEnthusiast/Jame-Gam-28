@@ -103,6 +103,7 @@ script = ExtResource("3_37b05")
 
 [node name="Ray" type="RayCast3D" parent="Camera"]
 target_position = Vector3(0, 0, -3)
+collision_mask = 2
 script = ExtResource("4_jwg7r")
 
 [node name="TowerLimiter" type="Area3D" parent="."]

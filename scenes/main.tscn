@@ -1,11 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4x83u2640j26"]
+[gd_scene load_steps=16 format=3 uid="uid://b4x83u2640j26"]
 
 [ext_resource type="PackedScene" uid="uid://da6p7xugiti5x" path="res://scenes/player.tscn" id="1_oicmh"]
 [ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://scenes/flower.tscn" id="3_3vo6f"]
 [ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
 [ext_resource type="PackedScene" uid="uid://baj527nhtiy3h" path="res://resources/GroundBaseMerge.glb" id="6_bdr8s"]
-[ext_resource type="PackedScene" uid="uid://b5vaq6g5qxsaf" path="res://resources/GroundBase.glb" id="6_hvxjh"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_v6n4g"]
 
@@ -88,22 +87,18 @@ collision_mask = 2
 transform = Transform3D(70.57, 0, 0, 0, 0.622, 0, 0, 0, 79.602, -2.068, -14.632, -23.129)
 shape = SubResource("ConcavePolygonShape3D_rqap7")
 
-[node name="GroundBase" parent="Ground" instance=ExtResource("6_hvxjh")]
-transform = Transform3D(4.42839, 0, 0, 0, 4.42839, 0, 0, 0, 4.42839, -1.94111, -18.9383, -22.4963)
-visible = false
-
 [node name="GroundBaseMerge" parent="Ground" instance=ExtResource("6_bdr8s")]
 transform = Transform3D(4.428, 0, 0, 0, 4.428, 0, 0, 0, 4.428, -1.941, -18.938, -22.496)
 
 [node name="NavMesh" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ok78r")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Ground2" type="StaticBody3D" parent="."]
 
-[node name="IgnoreWarning" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="IgnoreWarning" type="CollisionShape3D" parent="Ground2"]
 transform = Transform3D(0.102255, 0.079864, 7.2959, 0.000571937, 1.59689, -0.383589, -0.476143, 0.0190695, 1.56638, 25.501, 20.985, -79.828)
 shape = SubResource("ConcavePolygonShape3D_tr5wk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground2"]
 transform = Transform3D(0.998187, 0, -0.0601949, 0, 1, 0, 0.0601949, 0, 0.998187, 0, 7.26906, 35.68)
 shape = SubResource("BoxShape3D_cpsbg")
