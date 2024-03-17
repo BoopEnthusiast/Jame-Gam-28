@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://da6p7xugiti5x"]
+[gd_scene load_steps=18 format=3 uid="uid://da6p7xugiti5x"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_plm0u"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="3_37b05"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/Ray.gd" id="4_jwg7r"]
 [ext_resource type="AudioStream" uid="uid://dxta8ja5q2cye" path="res://resources/sound/walk.mp3" id="5_p32kb"]
 [ext_resource type="AudioStream" uid="uid://srfxgovw8abg" path="res://resources/sound/jump.wav" id="6_vv4wu"]
+[ext_resource type="AudioStream" uid="uid://ccenbkv8sxtk7" path="res://resources/sound/place.wav" id="7_hdt8c"]
+[ext_resource type="AudioStream" uid="uid://koumxrjpqugb" path="res://resources/sound/hit.ogg" id="8_csx7c"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioq6e"]
 
@@ -54,6 +56,7 @@ var dandelion_scene := preload(\"res://scenes/dandelion.tscn\")
 # Get nodes
 @onready var ray := $\"../../Camera/Ray\"
 @onready var player := $\"../..\"
+@onready var place_sound := $\"../../PlaceSound\"
 
 
 func _on_aloe_pressed():
@@ -94,6 +97,7 @@ func do_the_rest(new_tower: Node):
 	new_tower.rotation.y = player.rotation.y
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	visible = false
+	place_sound.play()
 
 
 func cancel() -> void:
@@ -292,6 +296,12 @@ bus = &"SFX"
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
+
+[node name="PlaceSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hdt8c")
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_csx7c")
 
 [connection signal="pressed" from="UI/TowerSpawnMenu/Aloe" to="UI/TowerSpawnMenu" method="_on_aloe_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Dandelion" to="UI/TowerSpawnMenu" method="_on_dandelion_pressed"]

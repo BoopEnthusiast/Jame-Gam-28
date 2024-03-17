@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Sounds
 @onready var walking_sound = $WalkingSound
 @onready var jumping_sound = $JumpingSound 
-
+@onready var hit_sound = $HitSound
 
 # Is running
 var running := false
@@ -29,6 +29,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("hit"):
 		animationPlayer.play("Cube_008Action")
+		hit_sound.play()
 	
 	if not animationPlayer.is_playing():
 		animationPlayer.stop()
