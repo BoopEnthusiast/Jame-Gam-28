@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2livv8pre4wn" path="res://scenes/flower.tscn" id="3_3vo6f"]
 [ext_resource type="PackedScene" uid="uid://dlhrp0ou64c2s" path="res://scenes/entitySpawner.tscn" id="3_cklwk"]
 [ext_resource type="Shader" path="res://scripts/outline.gdshader" id="4_u73yv"]
-[ext_resource type="PackedScene" uid="uid://baj527nhtiy3h" path="res://resources/GroundBaseMerge.glb" id="6_bdr8s"]
+[ext_resource type="PackedScene" uid="uid://b2gyallionhq6" path="res://resources/GroundBaseMergeTextures.glb" id="5_yu86m"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_v6n4g"]
 
@@ -87,7 +87,7 @@ collision_mask = 2
 transform = Transform3D(70.57, 0, 0, 0, 0.622, 0, 0, 0, 79.602, -2.068, -14.632, -23.129)
 shape = SubResource("ConcavePolygonShape3D_rqap7")
 
-[node name="GroundBaseMerge" parent="Ground" instance=ExtResource("6_bdr8s")]
+[node name="GroundBaseMergeTextures" parent="Ground" instance=ExtResource("5_yu86m")]
 transform = Transform3D(4.428, 0, 0, 0, 4.428, 0, 0, 0, 4.428, -1.941, -18.938, -22.496)
 
 [node name="NavMesh" type="NavigationRegion3D" parent="."]
