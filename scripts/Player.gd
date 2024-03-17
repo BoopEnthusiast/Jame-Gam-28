@@ -8,6 +8,11 @@ const JUMP_VELOCITY = 5.5
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var animationPlayer: AnimationPlayer = $Camera/HandStab/AnimationPlayer
 
+# Sounds
+@onready var walking_sound = $WalkingSound
+@onready var jumping_sound = $JumpingSound 
+
+
 # Is running
 var running := false
 
@@ -19,6 +24,8 @@ func _physics_process(delta):
 	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jumping_sound.play()
+		
 	
 	if Input.is_action_just_pressed("hit"):
 		animationPlayer.play("Cube_008Action")
@@ -32,13 +39,19 @@ func _physics_process(delta):
 	running = Input.is_action_pressed("sprint")
 	
 	if direction:
+		if is_on_floor():
+			walking_sound.volume_db = 0
+		else:
+			walking_sound.volume_db = -80
 		if running:
 			velocity.x = direction.x * RUN_SPEED
 			velocity.z = direction.z * RUN_SPEED
 		else:
+			
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
 	else:
+		walking_sound.volume_db = -80
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	

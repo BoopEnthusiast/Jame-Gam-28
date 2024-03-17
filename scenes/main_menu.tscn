@@ -74,15 +74,9 @@ offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleBackground" type="Panel" parent="StartMenu"]
-custom_minimum_size = Vector2(198.395, 35.675)
+[node name="Title" type="RichTextLabel" parent="StartMenu"]
+custom_minimum_size = Vector2(197.64, 35)
 layout_mode = 2
-
-[node name="Title" type="RichTextLabel" parent="StartMenu/TitleBackground"]
-custom_minimum_size = Vector2(137.91, 35)
-layout_mode = 0
-offset_right = 197.785
-offset_bottom = 35.0
 theme = SubResource("Theme_coyev")
 text = "FLOWER TOWER"
 scroll_active = false
