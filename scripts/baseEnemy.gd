@@ -41,7 +41,14 @@ func _physics_process(delta):
 		print(collision)
 		if collision.get_collider().name == "Flower":
 			collision.get_collider().call("damage", 10.0)
-			death_sound.play()
+			if self is Wasp:
+				var new_death_sound = death_sound_wasp_scene.instantiate()
+				get_parent().add_child(new_death_sound)
+				new_death_sound.play()
+			else:
+				var new_death_sound = death_sound_scene.instantiate()
+				get_parent().add_child(new_death_sound)
+				new_death_sound.play()
 			get_parent().remove_child(self)
 			return
 	move_and_slide()
