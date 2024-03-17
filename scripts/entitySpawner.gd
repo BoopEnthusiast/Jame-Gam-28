@@ -20,10 +20,10 @@ func get_positions(side: int) -> Vector4:
 func _process(delta):
 	# Delay for the spawning
 	if timer <= 0:
-		if timerRestartTime > 0:
+		if timerRestartTime > 0.05:
 			timerRestartTime -= 4.5 * 0.016666666
 		else:
-			timerRestartTime = 0
+			timerRestartTime = 0.05
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = testEnemy.instantiate()
