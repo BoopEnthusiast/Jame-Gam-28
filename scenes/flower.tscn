@@ -12,7 +12,6 @@ material = ExtResource("1_s56fb")
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_ieosc")
-metadata/_edit_group_ = true
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_78u6r")

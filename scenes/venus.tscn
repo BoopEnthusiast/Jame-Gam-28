@@ -1,14 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://cawvmqem7w3ml"]
+[gd_scene load_steps=5 format=3 uid="uid://cawvmqem7w3ml"]
+
+[ext_resource type="Script" path="res://scripts/venus.gd" id="1_hxfg5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1quh1"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_kexwh"]
+radius = 5.915
+
 [node name="Venus" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_hxfg5")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_m30ox")
+
+[node name="Range" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Collider" type="CollisionShape3D" parent="Range"]
+shape = SubResource("SphereShape3D_kexwh")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 7.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]
