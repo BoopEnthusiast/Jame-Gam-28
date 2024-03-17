@@ -20,6 +20,10 @@ func _ready() -> void:
 
 # Interact with objects
 func _physics_process(_delta) -> void:
+	if Input.is_action_just_pressed("hit") and is_colliding():
+		var interacted_object: Object = get_collider()
+		if interacted_object is enemy:
+			interacted_object.call("damage", 70)
 	if Input.is_action_just_pressed("interact") and is_colliding():
 		var interacted_object: Object = get_collider()
 		if interacted_object == ground_node:

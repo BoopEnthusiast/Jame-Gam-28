@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsopl8ua7cmnv"]
+
+[ext_resource type="Script" path="res://scenes/ant.gd" id="1_04cwx"]
+
+[node name="Ant" type="CharacterBody3D"]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("1_04cwx")
+MAX_HEALTH = 100.0
+START_HEALTH = 100.0
+MOVE_SPEED = 4.5
+WATER_VALUE = 9
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
