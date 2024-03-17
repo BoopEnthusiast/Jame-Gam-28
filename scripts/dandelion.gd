@@ -18,6 +18,7 @@ func _physics_process(_delta) -> void:
 				new_seed.target = body
 				new_seed.level = upgrade_level
 				new_seed.global_position = global_position
+				new_seed.global_position.y += 5
 				timer.start()
 				return
 

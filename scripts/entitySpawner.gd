@@ -15,8 +15,6 @@ func _ready():
 	options = [beetle, ant]
 	timer = START_SPAWN_DELAY_SECONDS
 	timerRestartTime = START_SPAWN_DELAY_SECONDS
-	
-	Performance.add_custom_monitor("game/timerRestartTime", get_timer_restart_time)
 
 func get_positions(side: int) -> Vector4:
 	match side:
@@ -50,6 +48,3 @@ func _process(delta):
 		get_parent().add_child(instance)
 	else: timer -= delta
 
-
-func get_timer_restart_time():
-	return timerRestartTime

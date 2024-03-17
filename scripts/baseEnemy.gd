@@ -45,11 +45,14 @@ func _physics_process(delta):
 				var new_death_sound = death_sound_wasp_scene.instantiate()
 				get_parent().add_child(new_death_sound)
 				new_death_sound.play()
+				get_parent().remove_child(self)
+				queue_free()
 			else:
 				var new_death_sound = death_sound_scene.instantiate()
 				get_parent().add_child(new_death_sound)
 				new_death_sound.play()
-			get_parent().remove_child(self)
+				get_parent().remove_child(self)
+				queue_free()
 			return
 	move_and_slide()
 
@@ -88,13 +91,18 @@ func damage(dp: float, upgrade_level: int):
 		Singleton.water += WATER_VALUE
 		if self is Wasp:
 			var new_death_sound = death_sound_wasp_scene.instantiate()
-			get_parent().add_child(new_death_sound)
-			new_death_sound.play()
+			if get_parent() != null:
+				get_parent().add_child(new_death_sound)
+				new_death_sound.play()
+				get_parent().remove_child(self)
+			queue_free()
 		else:
 			var new_death_sound = death_sound_scene.instantiate()
-			get_parent().add_child(new_death_sound)
-			new_death_sound.play()
-		get_parent().remove_child(self)
+			if get_parent() != null:
+				get_parent().add_child(new_death_sound)
+				new_death_sound.play()
+				get_parent().remove_child(self)
+			queue_free()
 
 func set_move_speed(speed: float):
 	MOVE_SPEED = speed
