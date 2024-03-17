@@ -15,7 +15,7 @@ script/source = "extends RichTextLabel
 
 
 func _process(_delta):
-	text = \"Flower Health: \" + str(Singleton.get_flower_health())
+	text = \"Flower Health: \" + str(Singleton.flower_health)
 "
 
 [sub_resource type="GDScript" id="GDScript_f1pcb"]
