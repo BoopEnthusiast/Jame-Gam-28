@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://chevuyljmeudo"]
+[gd_scene load_steps=6 format=3 uid="uid://chevuyljmeudo"]
 
 [ext_resource type="Script" path="res://scripts/butterfly.gd" id="1_48cep"]
 [ext_resource type="PackedScene" uid="uid://breusqlq2aeqt" path="res://resources/ButterflyTextured.glb" id="1_n8pfj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7d737"]
-radius = 35.0
+radius = 166.316
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ufp4r"]
+radius = 0.205029
+height = 1.8259
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wkqc3"]
+radius = 3.22117
 
 [node name="Butterfly" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_48cep")
 HEALING_POWER = 40
 MAX_HEALTH = 100.0
@@ -15,7 +24,7 @@ MOVE_SPEED = 3.0
 WATER_VALUE = 5
 
 [node name="ButterflyTextured" parent="." instance=ExtResource("1_n8pfj")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, -0.0227079, 2.19417, 0.0100632)
 
 [node name="Range" type="Area3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -27,3 +36,12 @@ shape = SubResource("SphereShape3D_7d737")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0869719, 0.996044, -0.0182151, 0.0986017, -0.00958791, -0.995081, -0.991319, -0.0883401, -0.0973778, 0.03318, 2.44436, 0.0229204)
+shape = SubResource("CapsuleShape3D_ufp4r")
+
+[node name="DeathArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+shape = SubResource("SphereShape3D_wkqc3")

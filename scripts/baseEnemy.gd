@@ -10,6 +10,7 @@ var gravity = 0
 @export var JUMP_VELOCITY: float
 @export var WATER_VALUE: int
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
+@onready var collider: CollisionShape3D = $Collider
 
 func _ready():
 	# Set health
@@ -38,6 +39,7 @@ func _physics_process(delta):
 	# Damage the flower if colliding
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
+		print(collision)
 		if collision.get_collider().name == "Flower":
 			collision.get_collider().call("damage", 10.0)
 			get_parent().remove_child(self)

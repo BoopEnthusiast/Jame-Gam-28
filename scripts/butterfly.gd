@@ -3,6 +3,7 @@ extends "res://scripts/baseEnemy.gd"
 @onready var rangeArea = $Range
 @export var HEALING_POWER: int
 var pos: Vector3
+@onready var death_area = $DeathArea
 
 func _physics_process(delta):
 	# Get the target location
@@ -19,3 +20,8 @@ func _physics_process(delta):
 	move_to(pos)
 	
 	move_and_slide()
+	
+	
+	var overlapping_bodies: Array[Node3D] = death_area.get_overlapping_bodies()
+	if overlapping_bodies.has(get_parent().get_node("Flower")):
+		health -= 1000

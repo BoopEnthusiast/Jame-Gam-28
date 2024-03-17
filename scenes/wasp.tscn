@@ -1,28 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhvjg6iemfyi3"]
+[gd_scene load_steps=5 format=3 uid="uid://dhvjg6iemfyi3"]
 
 [ext_resource type="Script" path="res://scripts/wasp.gd" id="1_16bm6"]
 [ext_resource type="PackedScene" uid="uid://cbh61c6vv361r" path="res://resources/WaspTextureglb.glb" id="2_3k7dc"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_y6lws"]
-radius = 25.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_c5lbc"]
+radius = 0.186433
+height = 0.934319
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iq277"]
+radius = 1.59658
 
 [node name="Wasp" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_16bm6")
-HEALING_POWER = 30
 MAX_HEALTH = 100.0
 START_HEALTH = 100.0
 MOVE_SPEED = 3.5
 WATER_VALUE = 5
 
 [node name="WaspTextureglb" parent="." instance=ExtResource("2_3k7dc")]
-transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0, 0)
-
-[node name="Range" type="Area3D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Collider" type="CollisionShape3D" parent="Range"]
-shape = SubResource("SphereShape3D_y6lws")
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 1.48519, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999879, 0.0149759, 0.00429234, -0.00828955, 0.278163, 0.960498, 0.0131904, -0.960417, 0.278253, 0, 1.99452, 0.19723)
+shape = SubResource("CapsuleShape3D_c5lbc")
+
+[node name="DeathArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
+shape = SubResource("SphereShape3D_iq277")

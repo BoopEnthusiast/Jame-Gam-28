@@ -23,7 +23,7 @@ WATER_VALUE = 9
 transform = Transform3D(-4.64328e-08, 0, 2.49934, 0, 1.84835, 0, -1.06226, 0, -1.0925e-07, -0.00799578, 2.06202, 2.13844)
 shape = SubResource("ConcavePolygonShape3D_i0l6n")
 
-[node name="Head collider" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(-3.46786e-08, -2.66098e-08, 1, -0.608761, 0.793353, 0, -0.793353, -0.608761, -4.37114e-08, -5.18405, 1.85568, -0.624571)
 shape = SubResource("ConcavePolygonShape3D_27t5i")
 

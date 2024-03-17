@@ -7,7 +7,7 @@ var seed_area_scene := preload("res://scenes/seed_area.tscn")
 
 
 func _physics_process(delta):
-	if target.is_inside_tree(): global_position += global_position.direction_to(target.global_position) * delta * SPEED
+	if target.is_inside_tree(): global_position += global_position.direction_to(target.collider.global_position) * delta * SPEED
 	else: queue_free()
 	
 	for body in get_overlapping_bodies():

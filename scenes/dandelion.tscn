@@ -7,7 +7,7 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4tdws"]
-radius = 31.0
+radius = 37.3101
 
 [node name="Dandelion" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

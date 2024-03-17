@@ -22,6 +22,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.8
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.13207e-08, 0.367053, -0.9302, -3.20888e-08, -0.9302, -0.367053, 0.0153575, 1.15927, 0.00545669)
 shape = SubResource("CapsuleShape3D_b3o0u")
