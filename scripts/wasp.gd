@@ -1,4 +1,5 @@
 extends "res://scripts/baseEnemy.gd"
+class_name Wasp
 
 var pos: Vector3
 @onready var death_area = $DeathArea

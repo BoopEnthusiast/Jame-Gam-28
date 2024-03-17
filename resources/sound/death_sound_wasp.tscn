@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b37am1ih1r0y4"]
+
+[ext_resource type="AudioStream" uid="uid://cf022fqo14ihx" path="res://resources/sound/wasp Death_noise.mp3" id="1_shtaa"]
+
+[node name="DeathSound" type="AudioStreamPlayer3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0523, 0)
+stream = ExtResource("1_shtaa")

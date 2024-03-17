@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://befrcnllnbm6d"]
+
+[ext_resource type="AudioStream" uid="uid://bx3r32o8c2u6l" path="res://resources/sound/sqeak.wav" id="1_7kmpb"]
+
+[node name="DeathSound" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_7kmpb")
+volume_db = 14.743

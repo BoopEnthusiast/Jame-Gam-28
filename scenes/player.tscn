@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="3_37b05"]
 [ext_resource type="PackedScene" uid="uid://cbfyd6653gl6j" path="res://resources/HandStab.glb" id="4_3hcqd"]
 [ext_resource type="Script" path="res://scripts/Ray.gd" id="4_jwg7r"]
-[ext_resource type="AudioStream" uid="uid://dxta8ja5q2cye" path="res://resources/sound/walk.mp3" id="5_ovjks"]
+[ext_resource type="AudioStream" uid="uid://dxta8ja5q2cye" path="res://resources/sound/walk.mp3" id="5_p32kb"]
 [ext_resource type="AudioStream" uid="uid://srfxgovw8abg" path="res://resources/sound/jump.wav" id="6_vv4wu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioq6e"]
@@ -281,7 +281,7 @@ text = "Quit"
 script = SubResource("GDScript_dy4n4")
 
 [node name="WalkingSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ovjks")
+stream = ExtResource("5_p32kb")
 autoplay = true
 bus = &"SFX"
 

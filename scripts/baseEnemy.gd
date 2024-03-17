@@ -11,7 +11,9 @@ var gravity = 0
 @export var WATER_VALUE: int
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var collider: CollisionShape3D = $Collider
-@onready var death_sound: AudioStreamPlayer3D = $DeathSound
+@onready var death_sound
+@onready var death_sound_scene = preload("res://resources/sound/death_sound.tscn")
+@onready var death_sound_wasp_scene = preload("res://resources/sound/death_sound_wasp.tscn")
 
 func _ready():
 	# Set health
@@ -21,10 +23,15 @@ func _process(_delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
 		# Gain water and die, get more water the higher the score
-		print("dying   ",Singleton.water)
 		Singleton.water += WATER_VALUE
-		print(Singleton.water)
-		death_sound.play()
+		if self is Wasp:
+			var new_death_sound = death_sound_wasp_scene.instantiate()
+			get_parent().add_child(new_death_sound)
+			new_death_sound.play()
+		else:
+			var new_death_sound = death_sound_scene.instantiate()
+			get_parent().add_child(new_death_sound)
+			new_death_sound.play()
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
