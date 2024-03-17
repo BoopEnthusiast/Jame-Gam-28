@@ -15,6 +15,7 @@ script = ExtResource("1_0257s")
 MAX_HEALTH = 100.0
 START_HEALTH = 100.0
 MOVE_SPEED = 5.5
+WATER_VALUE = 9
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ks755")
