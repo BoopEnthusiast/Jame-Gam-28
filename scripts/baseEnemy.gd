@@ -2,7 +2,7 @@ extends CharacterBody3D
 class_name enemy
 
 var health: float
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = 0
 @onready var flower_pos: Vector3 = get_parent().get_node("Flower").position
 @export var MAX_HEALTH: float
 @export var START_HEALTH: float
