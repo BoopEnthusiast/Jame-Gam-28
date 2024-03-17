@@ -23,7 +23,6 @@ WATER_VALUE = 5
 transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 1.48519, 0)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.999879, 0.0149759, 0.00429234, -0.00828955, 0.278163, 0.960498, 0.0131904, -0.960417, 0.278253, 0, 1.99452, 0.19723)

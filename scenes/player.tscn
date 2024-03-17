@@ -34,48 +34,6 @@ func _process(_delta):
 	text = \"Score: \" + str(Singleton.score)
 "
 
-[sub_resource type="GDScript" id="GDScript_4v4uo"]
-script/source = "extends Button
-
-@onready var pause_menu = $\"..\"
-
-var press_buffer = false
-
-func _on_pressed():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pause_menu.visible = false
-	get_tree().paused = false
-	press_buffer = false
-
-
-func _physics_process(_delta):
-	if Input.is_action_just_pressed(\"ui_cancel\") and press_buffer:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		pause_menu.visible = false
-		press_buffer = false
-		get_tree().paused = false
-	
-	if Input.is_action_just_pressed(\"ui_cancel\") and get_tree().paused:
-		press_buffer = true
-"
-
-[sub_resource type="GDScript" id="GDScript_eqj3p"]
-script/source = "extends Button
-
-
-func _on_pressed():
-	get_tree().paused = false
-	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
-"
-
-[sub_resource type="GDScript" id="GDScript_dy4n4"]
-script/source = "extends Button
-
-
-func _on_pressed():
-	get_tree().quit()
-"
-
 [sub_resource type="GDScript" id="GDScript_2nj2u"]
 script/source = "extends GridContainer
 
@@ -141,6 +99,48 @@ func cancel() -> void:
 	visible = false
 "
 
+[sub_resource type="GDScript" id="GDScript_4v4uo"]
+script/source = "extends Button
+
+@onready var pause_menu = $\"..\"
+
+var press_buffer = false
+
+func _on_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pause_menu.visible = false
+	get_tree().paused = false
+	press_buffer = false
+
+
+func _physics_process(_delta):
+	if Input.is_action_just_pressed(\"ui_cancel\") and press_buffer:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		pause_menu.visible = false
+		press_buffer = false
+		get_tree().paused = false
+	
+	if Input.is_action_just_pressed(\"ui_cancel\") and get_tree().paused:
+		press_buffer = true
+"
+
+[sub_resource type="GDScript" id="GDScript_eqj3p"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file(\"res://scenes/main_menu.tscn\")
+"
+
+[sub_resource type="GDScript" id="GDScript_dy4n4"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	get_tree().quit()
+"
+
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 6
 collision_mask = 6
@@ -204,6 +204,45 @@ grow_vertical = 0
 text = "Score: "
 script = SubResource("GDScript_pka8r")
 
+[node name="TowerSpawnMenu" type="GridContainer" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = -79.0
+offset_right = 161.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+script = SubResource("GDScript_2nj2u")
+
+[node name="Aloe" type="Button" parent="UI/TowerSpawnMenu"]
+layout_mode = 2
+text = "Aloe Vera
+Heals you and
+nearby towers"
+
+[node name="Dandelion" type="Button" parent="UI/TowerSpawnMenu"]
+layout_mode = 2
+text = "Dandelion
+Explosion shots"
+
+[node name="Squirting" type="Button" parent="UI/TowerSpawnMenu"]
+layout_mode = 2
+text = "Squirting Cucumber
+Precise shots"
+
+[node name="Venus" type="Button" parent="UI/TowerSpawnMenu"]
+layout_mode = 2
+text = "Venus Fly Trap
+Traps enemies and
+saps their health"
+
 [node name="PauseMenu" type="VBoxContainer" parent="UI"]
 process_mode = 2
 visible = false
@@ -235,49 +274,10 @@ layout_mode = 2
 text = "Quit"
 script = SubResource("GDScript_dy4n4")
 
-[node name="TowerSpawnMenu" type="GridContainer" parent="UI"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 2
-script = SubResource("GDScript_2nj2u")
-
-[node name="Aloe" type="Button" parent="UI/TowerSpawnMenu"]
-layout_mode = 2
-text = "Aloe Vera
-Heals you and
-nearby towers"
-
-[node name="Dandelion" type="Button" parent="UI/TowerSpawnMenu"]
-layout_mode = 2
-text = "Dandelion
-Explosion shots"
-
-[node name="Squirting" type="Button" parent="UI/TowerSpawnMenu"]
-layout_mode = 2
-text = "Squirting Cucumber
-Precise shots"
-
-[node name="Venus" type="Button" parent="UI/TowerSpawnMenu"]
-layout_mode = 2
-text = "Venus Fly Trap
-Traps enemies and
-saps their health"
-
-[connection signal="pressed" from="UI/PauseMenu/Resume" to="UI/PauseMenu/Resume" method="_on_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/MainMenu" to="UI/PauseMenu/MainMenu" method="_on_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Quit" to="UI/PauseMenu/Quit" method="_on_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Aloe" to="UI/TowerSpawnMenu" method="_on_aloe_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Dandelion" to="UI/TowerSpawnMenu" method="_on_dandelion_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Squirting" to="UI/TowerSpawnMenu" method="_on_squirting_pressed"]
 [connection signal="pressed" from="UI/TowerSpawnMenu/Venus" to="UI/TowerSpawnMenu" method="_on_venus_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Resume" to="UI/PauseMenu/Resume" method="_on_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/MainMenu" to="UI/PauseMenu/MainMenu" method="_on_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Quit" to="UI/PauseMenu/Quit" method="_on_pressed"]
