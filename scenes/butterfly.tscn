@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://chevuyljmeudo"]
+[gd_scene load_steps=7 format=3 uid="uid://chevuyljmeudo"]
 
 [ext_resource type="Script" path="res://scripts/butterfly.gd" id="1_48cep"]
 [ext_resource type="PackedScene" uid="uid://breusqlq2aeqt" path="res://resources/ButterflyTextured.glb" id="1_n8pfj"]
+[ext_resource type="AudioStream" uid="uid://bx3r32o8c2u6l" path="res://resources/sound/sqeak.wav" id="3_th4xy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7d737"]
 radius = 166.316
@@ -44,3 +45,6 @@ shape = SubResource("CapsuleShape3D_ufp4r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
 shape = SubResource("SphereShape3D_wkqc3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_th4xy")

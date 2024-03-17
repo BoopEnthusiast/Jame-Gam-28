@@ -3,6 +3,7 @@ extends "res://scripts/baseEnemy.gd"
 var pos: Vector3
 @onready var death_area = $DeathArea
 
+
 func _physics_process(delta):
 	# Get the target location
 	pos = get_parent().get_node("Flower").position

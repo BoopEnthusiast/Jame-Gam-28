@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsopl8ua7cmnv"]
+[gd_scene load_steps=5 format=3 uid="uid://dsopl8ua7cmnv"]
 
 [ext_resource type="Script" path="res://scripts/ant.gd" id="1_04cwx"]
 [ext_resource type="PackedScene" uid="uid://bd2hr38c05ww2" path="res://resources/AntTextured.glb" id="2_pct0a"]
+[ext_resource type="AudioStream" uid="uid://bx3r32o8c2u6l" path="res://resources/sound/sqeak.wav" id="3_l00uy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b3o0u"]
 radius = 0.457831
@@ -25,3 +26,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.8
 [node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, 8.74228e-08, -8.13207e-08, 0.367053, -0.9302, -3.20888e-08, -0.9302, -0.367053, 0.0153575, 1.15927, 0.00545669)
 shape = SubResource("CapsuleShape3D_b3o0u")
+
+[node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_l00uy")

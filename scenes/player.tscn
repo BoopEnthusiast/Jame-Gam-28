@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="3_37b05"]
 [ext_resource type="PackedScene" uid="uid://cbfyd6653gl6j" path="res://resources/HandStab.glb" id="4_3hcqd"]
 [ext_resource type="Script" path="res://scripts/Ray.gd" id="4_jwg7r"]
-[ext_resource type="AudioStream" uid="uid://dxta8ja5q2cye" path="res://resources/sound/504589__davidsonfreemedia__walking-on-grass-quickly.mp3" id="5_ovjks"]
-[ext_resource type="AudioStream" uid="uid://srfxgovw8abg" path="res://resources/sound/380471__acebrian__jump.wav" id="6_trd0w"]
+[ext_resource type="AudioStream" uid="uid://dxta8ja5q2cye" path="res://resources/sound/walk.mp3" id="5_ovjks"]
+[ext_resource type="AudioStream" uid="uid://srfxgovw8abg" path="res://resources/sound/jump.wav" id="6_vv4wu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ioq6e"]
 
@@ -286,7 +286,7 @@ autoplay = true
 bus = &"SFX"
 
 [node name="JumpingSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_trd0w")
+stream = ExtResource("6_vv4wu")
 pitch_scale = 1.93
 bus = &"SFX"
 
