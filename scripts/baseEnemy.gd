@@ -70,3 +70,7 @@ func set_move_speed(speed: float):
 
 func get_move_speed() -> float:
 	return MOVE_SPEED
+
+
+func get_global_position_from_enemy():
+	return global_position
