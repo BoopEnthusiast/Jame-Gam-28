@@ -2,6 +2,7 @@ extends Node
 
 @onready var testEnemy = preload("res://scenes/testEnemy.tscn")
 @onready var beetle = preload("res://scenes/beetle.tscn")
+@onready var wasp = preload("res://scenes/wasp.tscn")
 @onready var ant = preload("res://scenes/ant.tscn")
 @export var START_SPAWN_DELAY_SECONDS: int
 var timerRestartTime
@@ -22,6 +23,8 @@ func get_positions(side: int) -> Vector4:
 	return Vector4(0, 0, 0, 0)
 
 func _process(delta):
+	if Singleton.score > 2 and wasp not in options:
+		options.append(wasp)
 	# Delay for the spawning
 	if timer <= 0:
 		if timerRestartTime > 0.05:
