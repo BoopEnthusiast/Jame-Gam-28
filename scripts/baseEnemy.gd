@@ -20,7 +20,9 @@ func _process(_delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
 		# Gain water and die, get more water the higher the score
-		Singleton.water += WATER_VALUE & Singleton.score
+		print("dying   ",Singleton.water)
+		Singleton.water += WATER_VALUE
+		print(Singleton.water)
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH

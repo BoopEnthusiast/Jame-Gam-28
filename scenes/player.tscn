@@ -142,8 +142,8 @@ func _on_pressed():
 "
 
 [node name="Player" type="CharacterBody3D"]
-collision_layer = 6
-collision_mask = 6
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_plm0u")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
@@ -224,8 +224,7 @@ script = SubResource("GDScript_2nj2u")
 [node name="Aloe" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Aloe Vera
-Heals you and
-nearby towers"
+Heals flower"
 
 [node name="Dandelion" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2

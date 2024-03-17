@@ -21,7 +21,7 @@ HEALING_POWER = 40
 MAX_HEALTH = 100.0
 START_HEALTH = 100.0
 MOVE_SPEED = 3.0
-WATER_VALUE = 5
+WATER_VALUE = 9
 
 [node name="ButterflyTextured" parent="." instance=ExtResource("1_n8pfj")]
 transform = Transform3D(-0.1, 0, -8.74228e-09, 0, 0.1, 0, 8.74228e-09, 0, -0.1, -0.0227079, 2.19417, 0.0100632)
