@@ -40,4 +40,5 @@ shape = SubResource("SphereShape3D_iq277")
 [node name="Buzzzz" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0523, 0)
 stream = ExtResource("4_okwj1")
+unit_size = 0.3
 autoplay = true
