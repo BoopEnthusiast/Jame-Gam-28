@@ -33,6 +33,7 @@ shape = SubResource("SphereShape3D_m0t8x")
 
 [node name="FireCooldown" type="Timer" parent="."]
 process_callback = 0
+one_shot = true
 
 [node name="Head" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
