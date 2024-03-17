@@ -15,7 +15,7 @@ var spawn_location: Vector3
 
 # Get the ground node
 func _ready() -> void:
-	ground_node = get_node("../../../Ground")
+	ground_node = get_tree().get_first_node_in_group("ground")
 
 
 # Interact with objects

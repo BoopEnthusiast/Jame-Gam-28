@@ -79,7 +79,7 @@ material_override = SubResource("ShaderMaterial_61ji2")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_rqxdj")
 
-[node name="Ground" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="." groups=["ground"]]
 collision_layer = 2
 collision_mask = 2
 
