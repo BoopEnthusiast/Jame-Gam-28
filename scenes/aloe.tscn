@@ -15,3 +15,8 @@ shape = SubResource("CylinderShape3D_1quh1")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_m30ox")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timeout"]
