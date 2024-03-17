@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var START_HEALTH: float
 @export var MOVE_SPEED: float
 @export var JUMP_VELOCITY: float
+@export var WATER_VALUE: int
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _ready():
@@ -17,6 +18,7 @@ func _ready():
 func _process(_delta):
 	# Check health and die if 0 and lower
 	if health <= 0:
+		Singleton.water += WATER_VALUE
 		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
