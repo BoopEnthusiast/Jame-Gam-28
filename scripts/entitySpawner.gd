@@ -9,11 +9,14 @@ extends Node
 var timerRestartTime
 var timer
 var options = []
+var restart_timer_reset = 1
 
 func _ready():
 	options = [beetle, ant]
 	timer = START_SPAWN_DELAY_SECONDS
 	timerRestartTime = START_SPAWN_DELAY_SECONDS
+	
+	Performance.add_custom_monitor("game/timerRestartTime", get_timer_restart_time)
 
 func get_positions(side: int) -> Vector4:
 	match side:
@@ -31,10 +34,10 @@ func _process(delta):
 		options.append(butterfly)
 	# Delay for the spawning
 	if timer <= 0:
-		if timerRestartTime >= 0.1:
-			timerRestartTime -= 4.5 * 0.016666666
-		else:
-			timerRestartTime = 0.1
+		timerRestartTime *= 0.95
+		if timerRestartTime < 0.03:
+			timerRestartTime = restart_timer_reset
+			restart_timer_reset *= 0.9
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = options[randi_range(0, options.size() - 1)].instantiate()
@@ -44,3 +47,7 @@ func _process(delta):
 		instance.position.z = randf_range(pos.z, pos.w)
 		get_parent().add_child(instance)
 	else: timer -= delta
+
+
+func get_timer_restart_time():
+	return timerRestartTime

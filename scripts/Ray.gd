@@ -37,5 +37,5 @@ func _physics_process(_delta) -> void:
 			tower_menu.visible = true
 		elif interacted_object is Flower and Singleton.water >= 10:
 			Singleton.water -= 10
-			interacted_object.grow(2)
+			interacted_object.grow()
 			Singleton.score += 1
