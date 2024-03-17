@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://konhnqnbl47a"]
 
 [ext_resource type="Shader" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="1_a3q6o"]
-[ext_resource type="Texture2D" uid="uid://c0dpox2fcqs5d" path="res://addons/flexible_toon_shader/example/cup_texture.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bnt8vgg5foqsf" path="res://addons/flexible_toon_shader/example/cup_specular.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://c2oo5x4dr0etm" path="res://addons/flexible_toon_shader/example/cup_texture.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dqf4pphwmdjxh" path="res://addons/flexible_toon_shader/example/cup_specular.png" id="3"]
 
 [resource]
 render_priority = 0
