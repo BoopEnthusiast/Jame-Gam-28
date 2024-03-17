@@ -9,6 +9,7 @@ func _physics_process(delta):
 	for body in rangeArea.get_overlapping_bodies():
 		if body is enemy:
 			pos = body.position
+			pos.y += 2
 			body.call("heal", HEALING_POWER * delta)
 	# Move towards the flower
 	move_to(pos)

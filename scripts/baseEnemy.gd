@@ -47,6 +47,9 @@ func move_to(pos: Vector3):
 	# Set navigation agent target position
 	navigation_agent.set_target_position(pos)
 	
+	if navigation_agent.is_navigation_finished():
+		return
+	
 	# Get current position and find next path position
 	var current_agent_position: Vector3 = global_position
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
