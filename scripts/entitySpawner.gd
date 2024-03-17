@@ -23,6 +23,7 @@ func get_positions(side: int) -> Vector4:
 	return Vector4(0, 0, 0, 0)
 
 func _process(delta):
+	# Spawn wasp when certin score reached
 	if Singleton.score > 2 and wasp not in options:
 		options.append(wasp)
 	# Delay for the spawning
