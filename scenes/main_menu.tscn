@@ -7,6 +7,7 @@ default_font_size = 25
 script/source = "extends Button
 
 func _on_pressed():
+	Singleton.reset()
 	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
 "
 
