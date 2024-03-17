@@ -23,7 +23,7 @@ func _physics_process(_delta) -> void:
 	if Input.is_action_just_pressed("hit") and is_colliding():
 		var interacted_object: Object = get_collider()
 		if interacted_object is enemy:
-			interacted_object.call("damage", 70)
+			interacted_object.damage(70, 1)
 	if Input.is_action_just_pressed("interact") and is_colliding():
 		var interacted_object: Object = get_collider()
 		if interacted_object == ground_node:
@@ -39,3 +39,6 @@ func _physics_process(_delta) -> void:
 			Singleton.water -= 10
 			interacted_object.grow()
 			Singleton.score += 1
+		elif interacted_object is Tower and Singleton.water >= interacted_object.COST:
+			Singleton.water -= interacted_object.COST
+			interacted_object.upgrade()

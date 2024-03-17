@@ -17,13 +17,6 @@ func _ready():
 	health = START_HEALTH
 
 func _process(_delta):
-	# Check health and die if 0 and lower
-	if health <= 0:
-		# Gain water and die, get more water the higher the score
-		print("dying   ",Singleton.water)
-		Singleton.water += WATER_VALUE
-		print(Singleton.water)
-		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
 	run_animations()
@@ -76,8 +69,11 @@ func heal(hp: float):
 		health = MAX_HEALTH
 	health += hp
 
-func damage(dp: float):
-	health -= dp
+func damage(dp: float, upgrade_level: int):
+	health -= dp*(upgrade_level/1.75)
+	if health <= 0:
+		Singleton.water += WATER_VALUE * upgrade_level
+		get_parent().remove_child(self)
 
 func set_move_speed(speed: float):
 	MOVE_SPEED = speed

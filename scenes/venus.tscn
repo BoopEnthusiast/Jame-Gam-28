@@ -11,6 +11,8 @@ radius = 5.915
 [node name="Venus" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_hxfg5")
+damage_points = 100
+COST = 30
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
