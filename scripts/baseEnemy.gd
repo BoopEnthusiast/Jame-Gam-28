@@ -21,18 +21,6 @@ func _ready():
 
 func _process(_delta):
 	# Check health and die if 0 and lower
-	if health <= 0:
-		# Gain water and die, get more water the higher the score
-		Singleton.water += WATER_VALUE
-		if self is Wasp:
-			var new_death_sound = death_sound_wasp_scene.instantiate()
-			get_parent().add_child(new_death_sound)
-			new_death_sound.play()
-		else:
-			var new_death_sound = death_sound_scene.instantiate()
-			get_parent().add_child(new_death_sound)
-			new_death_sound.play()
-		get_parent().remove_child(self)
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
 	run_animations()
@@ -86,8 +74,20 @@ func heal(hp: float):
 		health = MAX_HEALTH
 	health += hp
 
-func damage(dp: float):
-	health -= dp
+func damage(dp: float, upgrade_level: int):
+	health -= dp*(upgrade_level/1.75)
+	if health <= 0:
+		# Gain water and die, get more water the higher the score
+		Singleton.water += WATER_VALUE
+		if self is Wasp:
+			var new_death_sound = death_sound_wasp_scene.instantiate()
+			get_parent().add_child(new_death_sound)
+			new_death_sound.play()
+		else:
+			var new_death_sound = death_sound_scene.instantiate()
+			get_parent().add_child(new_death_sound)
+			new_death_sound.play()
+		get_parent().remove_child(self)
 
 func set_move_speed(speed: float):
 	MOVE_SPEED = speed
