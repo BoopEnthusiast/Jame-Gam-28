@@ -8,8 +8,6 @@ var bodies = []
 func _process(_delta):
 	if not bodies.is_empty():
 		var body = bodies[0]
-		print(cooldown.time_left)
-		# TODO WHY ISN'T THE TIMER STOPPING AHHHHHHHHHHHHHHHHHHH
 		if cooldown.is_stopped():
 			head.look_at(body.global_position)
 			body.call("damage", damage_points)
