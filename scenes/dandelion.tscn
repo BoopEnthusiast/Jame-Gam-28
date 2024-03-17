@@ -6,8 +6,7 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_t51bu"]
-radius = 2.37358
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ftjy"]
 
 [node name="Dandelion" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -25,6 +24,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Collider" type="CollisionShape3D" parent="Range"]
-shape = SubResource("SphereShape3D_t51bu")
+shape = SubResource("BoxShape3D_4ftjy")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
