@@ -1,4 +1,5 @@
 extends CharacterBody3D
+class_name enemy
 
 var health: float
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

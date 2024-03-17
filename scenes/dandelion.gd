@@ -1,11 +1,11 @@
 extends "res://scripts/tower.gd"
 class_name dandelion_tower
 
-func _ready():
-	get_range_area3d().connect("area_entered", on_collision)
-
-func on_collision(_collider):
-	pass
-
 func _process(_delta):
 	pass
+
+
+func _on_range_area_entered(area):
+	if area.collision_layer == 2:
+		if area is enemy:
+			area.call("damage", 100)
