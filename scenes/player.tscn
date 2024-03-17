@@ -45,7 +45,7 @@ var dandelion_scene := preload(\"res://scenes/dandelion.tscn\")
 
 # Variables
 @export var aloe_cost: int = 40
-@export var dandelion_cost: int = 60
+@export var dandelion_cost: int = 90
 @export var squirting_cost: int = 50
 @export var venus_cost: int = 30
 
@@ -205,7 +205,6 @@ text = "Score: "
 script = SubResource("GDScript_pka8r")
 
 [node name="TowerSpawnMenu" type="GridContainer" parent="UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -224,23 +223,28 @@ script = SubResource("GDScript_2nj2u")
 [node name="Aloe" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Aloe Vera
-Heals flower"
+Heals flower
+over time
+40 water"
 
 [node name="Dandelion" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Dandelion
-Explosion shots"
+Explosion shots
+90 water"
 
 [node name="Squirting" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Squirting Cucumber
-Precise shots"
+Precise shots
+50 water"
 
 [node name="Venus" type="Button" parent="UI/TowerSpawnMenu"]
 layout_mode = 2
 text = "Venus Fly Trap
-Traps enemies and
-saps their health"
+Kills nearby enemies
+occasionally
+30 water"
 
 [node name="PauseMenu" type="VBoxContainer" parent="UI"]
 process_mode = 2
