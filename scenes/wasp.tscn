@@ -9,8 +9,6 @@ radius = 25.0
 [node name="Wasp" type="CharacterBody3D"]
 script = ExtResource("1_17e42")
 HEALING_POWER = 30
-MAX_HEALTH = 150
-START_HEALTH = 150
 MOVE_SPEED = 3.0
 WATER_VALUE = 10
 

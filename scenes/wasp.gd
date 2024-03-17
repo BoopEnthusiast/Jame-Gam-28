@@ -5,19 +5,17 @@ extends "res://scripts/baseEnemy.gd"
 var pos: Vector3
 
 func _physics_process(delta):
+	# Get the target location
+	pos = get_parent().get_node("Flower").position
 	for body in rangeArea.get_overlapping_bodies():
 		if body is enemy:
 			pos = body.position
-			pos.y += 2
 			body.call("heal", HEALING_POWER * delta)
+	
+	# Hover above the ground
+	pos.y += 2
+	
 	# Move towards the flower
 	move_to(pos)
 	
-	# Damage the flower if colliding
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if collision.get_collider().name == "Flower":
-			collision.get_collider().call("damage", 10.0)
-			get_parent().remove_child(self)
-			return
 	move_and_slide()
