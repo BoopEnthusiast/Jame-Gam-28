@@ -31,10 +31,10 @@ func _process(delta):
 		options.append(butterfly)
 	# Delay for the spawning
 	if timer <= 0:
-		if timerRestartTime >= 0.1:
+		if timerRestartTime >= 0.5:
 			timerRestartTime -= 4.5 * 0.016666666
 		else:
-			timerRestartTime = 0.1
+			timerRestartTime = 0.5
 		timer = timerRestartTime
 		# Spawn the entity
 		var instance = options[randi_range(0, options.size() - 1)].instantiate()
