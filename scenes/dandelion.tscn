@@ -6,11 +6,13 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_m30ox"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ftjy"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_4tdws"]
+radius = 15.0
 
 [node name="Dandelion" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_7cegc")
+damage_points = 35
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_1quh1")
@@ -19,11 +21,10 @@ shape = SubResource("CylinderShape3D_1quh1")
 mesh = SubResource("CylinderMesh_m30ox")
 
 [node name="Range" type="Area3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 collision_layer = 2
 collision_mask = 2
 
 [node name="Collider" type="CollisionShape3D" parent="Range"]
-shape = SubResource("BoxShape3D_4ftjy")
+shape = SubResource("SphereShape3D_4tdws")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]

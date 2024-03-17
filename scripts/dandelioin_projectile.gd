@@ -2,7 +2,7 @@ extends Area3D
 
 var target
 var seed_area_scene := preload("res://scenes/seed_area.tscn")
-
+var damage: int
 
 func _physics_process(delta):
 	if target != null:
@@ -14,6 +14,7 @@ func _physics_process(delta):
 		print(body)
 		if body is enemy:
 			print("Hello found you")
+			body.call("damage", damage)
 			var new_seed_area = seed_area_scene.instantiate()
 			get_tree().root.add_child(new_seed_area)
 			new_seed_area.global_position = global_position
