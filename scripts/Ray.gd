@@ -31,3 +31,7 @@ func _physics_process(_delta) -> void:
 			spawn_location = get_collision_point()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			tower_menu.visible = true
+		elif interacted_object is Flower and Singleton.water >= 10:
+			Singleton.water -= 10
+			interacted_object.grow(2)
+			Singleton.score += 1

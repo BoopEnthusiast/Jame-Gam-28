@@ -179,25 +179,18 @@ text = "Flower Health: "
 script = SubResource("GDScript_ypnlj")
 
 [node name="Water" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -139.0
-offset_bottom = 23.0
-grow_horizontal = 0
+layout_mode = 0
+offset_left = 1.0
+offset_top = 23.0
+offset_right = 314.0
+offset_bottom = 46.0
 text = "Water: "
 script = SubResource("GDScript_f1pcb")
 
 [node name="Score" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -23.0
-offset_right = 214.0
-grow_vertical = 0
-text = "Score: "
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 script = SubResource("GDScript_pka8r")
 
 [node name="PauseMenu" type="VBoxContainer" parent="UI"]

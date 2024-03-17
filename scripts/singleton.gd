@@ -4,6 +4,7 @@ var player_health: int = 100
 var flower_health: int = 100
 var growth: float = 0
 var water: int = 100
+var score: int = 0
 
 func _process(delta) -> void:
 	growth += 1 * delta
