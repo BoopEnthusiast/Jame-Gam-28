@@ -1,16 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcv67mumhretr"]
 
-[ext_resource type="Script" path="res://scenes/dandelioin_projectile.gd" id="1_kdkg6"]
+[ext_resource type="Script" path="res://scripts/dandelioin_projectile.gd" id="1_3prrt"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_62a8a"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_oy2se"]
+radius = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_vve48"]
+size = Vector3(0.3, 0.3, 0.3)
 
 [node name="DandelionPrejectile" type="Area3D"]
-script = ExtResource("1_kdkg6")
+script = ExtResource("1_3prrt")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_62a8a")
+shape = SubResource("SphereShape3D_oy2se")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_vve48")
